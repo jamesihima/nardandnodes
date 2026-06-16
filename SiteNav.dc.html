@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+@keyframes nnfade{from{opacity:0;}to{opacity:1;}}
+@media (max-width:880px){[data-desktop-nav]{display:none !important;}[data-hamburger]{display:inline-flex !important;}}
+@media (min-width:881px){[data-hamburger]{display:none !important;}[data-mobile-menu]{display:none !important;}}
+</style>
+</helmet>
+<header data-nav style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,5vw,72px);background:transparent;border-bottom:1px solid rgba(169,132,70,0);transition:background .5s cubic-bezier(.22,1,.36,1),padding .5s cubic-bezier(.22,1,.36,1),border-color .5s;">
+  <a href="Nard%20%26%20Notes%20-%20Home.dc.html" aria-label="Nard & Notes home" style="display:flex;align-items:center;line-height:0;text-decoration:none;">
+    <picture><source type="image/webp" srcset="assets/opt/logo-cream.webp"><img data-logo-cream src="assets/logo-cream.png" alt="Nard &amp; Notes" width="760" height="543" fetchpriority="high" decoding="async" style="display:block;height:46px;width:auto;"></picture>
+    <picture><source type="image/webp" srcset="assets/opt/logo-ink.webp"><img data-logo-ink src="assets/logo-ink.png" alt="Nard &amp; Notes" width="760" height="543" decoding="async" style="display:none;height:46px;width:auto;"></picture>
+  </a>
+  <nav data-desktop-nav style="display:flex;align-items:center;gap:clamp(20px,2.4vw,38px);">
+    <a data-navlink data-nav-home href="Nard%20%26%20Notes%20-%20Home.dc.html" style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F6EBD9;text-decoration:none;font-weight:300;transition:color .4s,letter-spacing .4s;" style-hover="letter-spacing:.26em;color:#A98446;">Home</a>
+    <a data-navlink data-nav-about href="About.dc.html" style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F6EBD9;text-decoration:none;font-weight:300;transition:color .4s,letter-spacing .4s;" style-hover="letter-spacing:.26em;color:#A98446;">About</a>
+    <a data-navlink data-nav-services href="Services.dc.html" style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F6EBD9;text-decoration:none;font-weight:300;transition:color .4s,letter-spacing .4s;" style-hover="letter-spacing:.26em;color:#A98446;">Services</a>
+    <a data-navlink data-nav-experience href="The%20Experience.dc.html" style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F6EBD9;text-decoration:none;font-weight:300;transition:color .4s,letter-spacing .4s;" style-hover="letter-spacing:.26em;color:#A98446;">The Experience</a>
+    <a data-navlink data-nav-contact href="Contact.dc.html" style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F6EBD9;text-decoration:none;font-weight:300;transition:color .4s,letter-spacing .4s;" style-hover="letter-spacing:.26em;color:#A98446;">Contact</a>
+    <a data-navlink data-nav-shop href="Shop.dc.html" style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F6EBD9;text-decoration:none;font-weight:300;transition:color .4s,letter-spacing .4s;" style-hover="letter-spacing:.26em;color:#A98446;">Shop</a>
+    <button onClick="{{ openCart }}" data-navlink aria-label="Open bag" style="background:transparent;border:0;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F6EBD9;cursor:pointer;font-weight:300;padding:0;transition:color .4s;" style-hover="color:#A98446;">Bag {{ countLabel }}</button>
+    <a data-nav-cta href="Contact.dc.html" style="font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#F6EBD9;border:1px solid rgba(246,235,217,.6);padding:13px 22px;text-decoration:none;font-weight:300;transition:background .35s cubic-bezier(.22,1,.36,1),color .35s,border-color .35s;" style-hover="background:#F6EBD9;color:#1C1712;border-color:#F6EBD9;">Book the Experience</a>
+  </nav>
+  <button data-hamburger onClick="{{ openMenu }}" aria-label="Open menu" style="display:none;align-items:center;gap:10px;background:transparent;border:0;cursor:pointer;color:#F6EBD9;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;">
+    <span style="display:flex;flex-direction:column;gap:4px;"><span style="width:24px;height:1px;background:currentColor;display:block;"></span><span style="width:24px;height:1px;background:currentColor;display:block;"></span></span>Menu
+  </button>
+</header>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div data-mobile-menu style="position:fixed;inset:0;z-index:80;background:#F6EBD9;animation:nnfade .5s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;padding:26px clamp(24px,7vw,48px);">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <picture><source type="image/webp" srcset="assets/opt/logo-ink.webp"><img src="assets/logo-ink.png" alt="Nard &amp; Notes" width="760" height="543" decoding="async" loading="lazy" style="height:46px;width:auto;"></picture>
+      <button onClick="{{ closeMenu }}" aria-label="Close menu" style="background:transparent;border:0;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#1C1712;">Close ✕</button>
+    </div>
+    <nav style="margin-top:auto;margin-bottom:auto;display:flex;flex-direction:column;gap:6px;">
+      <a href="Nard%20%26%20Notes%20-%20Home.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,11vw,60px);color:#1C1712;text-decoration:none;line-height:1.2;">Home</a>
+      <a href="About.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,11vw,60px);color:#1C1712;text-decoration:none;line-height:1.2;">About</a>
+      <a href="Services.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,11vw,60px);color:#1C1712;text-decoration:none;line-height:1.2;">Services</a>
+      <a href="The%20Experience.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,11vw,60px);color:#1C1712;text-decoration:none;line-height:1.2;">The Experience</a>
+      <a href="Contact.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,11vw,60px);color:#1C1712;text-decoration:none;line-height:1.2;">Contact</a>
+      <a href="Shop.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,11vw,60px);color:#1C1712;text-decoration:none;line-height:1.2;">Shop</a>
+    </nav>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <a href="Contact.dc.html" style="align-self:flex-start;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#1C1712;border:1px solid #1C1712;padding:16px 30px;text-decoration:none;">Book the Experience</a>
+      <button onClick="{{ openCart }}" style="align-self:flex-start;background:transparent;border:0;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#1C1712;padding:0;">Bag {{ countLabel }}</button>
+      <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#A98446;">Instagram — @nardandnotes</span>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:120},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;about&quot;,&quot;services&quot;,&quot;experience&quot;,&quot;contact&quot;,&quot;shop&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menuOpen: false, count: 0 };
+
+  loadCount() { try { return JSON.parse(localStorage.getItem('nn_cart') || '[]').reduce((a, i) => a + i.qty, 0); } catch (e) { return 0; } }
+
+  componentDidMount() {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.setState({ count: this.loadCount() });
+    this._changed = (e) => { this.setState({ count: (e.detail && e.detail.count) || 0 }); };
+    window.addEventListener('nn-cart-changed', this._changed);
+
+    const active = this.props.active || 'home';
+    const ael = document.querySelector('[data-nav-' + active + ']');
+    if (ael) { ael.style.borderBottom = '1px solid #A98446'; ael.style.paddingBottom = '4px'; }
+
+    const nav = document.querySelector('[data-nav]');
+    const onScroll = () => {
+      const y = window.scrollY || window.pageYOffset || 0;
+      if (!nav) return;
+      const solid = y > 70;
+      nav.style.background = solid ? 'rgba(246,235,217,0.96)' : 'transparent';
+      nav.style.borderBottomColor = solid ? 'rgba(169,132,70,0.28)' : 'rgba(169,132,70,0)';
+      nav.style.backdropFilter = 'none';
+      nav.style.webkitBackdropFilter = 'none';
+      nav.style.paddingTop = solid ? '14px' : '22px';
+      nav.style.paddingBottom = solid ? '14px' : '22px';
+      const c = solid ? '#1C1712' : '#F6EBD9';
+      document.querySelectorAll('[data-navlink]').forEach(l => { l.style.color = c; });
+      const cta = document.querySelector('[data-nav-cta]');
+      if (cta) { cta.style.color = c; cta.style.borderColor = solid ? '#1C1712' : 'rgba(246,235,217,0.6)'; }
+      const ham = document.querySelector('[data-hamburger]');
+      if (ham) ham.style.color = c;
+      const lc = document.querySelector('[data-logo-cream]');
+      const li = document.querySelector('[data-logo-ink]');
+      if (lc && li) { lc.style.display = solid ? 'none' : 'block'; li.style.display = solid ? 'block' : 'none'; }
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this._onScroll = onScroll;
+
+    if (window.matchMedia('(pointer:fine)').matches && !reduce && !window.__nnCursor) {
+      window.__nnCursor = true;
+      const ring = document.createElement('div');
+      ring.style.cssText = 'position:fixed;top:0;left:0;width:30px;height:30px;border:1px solid rgba(169,132,70,0.85);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .28s cubic-bezier(.22,1,.36,1),height .28s cubic-bezier(.22,1,.36,1),background .28s,border-color .28s;';
+      document.body.appendChild(ring);
+      document.body.style.cursor = 'none';
+      let cx = window.innerWidth / 2, cy = window.innerHeight / 2, tx = cx, ty = cy;
+      document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+      const loop = () => { cx += (tx - cx) * 0.2; cy += (ty - cy) * 0.2; ring.style.left = cx + 'px'; ring.style.top = cy + 'px'; this._raf = requestAnimationFrame(loop); };
+      loop();
+      const sel = 'a,button,input,select,textarea,[role=button]';
+      document.addEventListener('mouseover', e => { if (e.target.closest && e.target.closest(sel)) { ring.style.width = '54px'; ring.style.height = '54px'; ring.style.background = 'rgba(169,132,70,0.12)'; ring.style.borderColor = 'rgba(169,132,70,0.5)'; } });
+      document.addEventListener('mouseout', e => { if (e.target.closest && e.target.closest(sel)) { ring.style.width = '30px'; ring.style.height = '30px'; ring.style.background = 'transparent'; ring.style.borderColor = 'rgba(169,132,70,0.85)'; } });
+      this._cursor = ring;
+    }
+  }
+
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._changed) window.removeEventListener('nn-cart-changed', this._changed);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._cursor && this._cursor.parentNode) { this._cursor.parentNode.removeChild(this._cursor); window.__nnCursor = false; document.body.style.cursor = ''; }
+  }
+
+  renderVals() {
+    const count = this.state.count;
+    return {
+      menuOpen: this.state.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      countLabel: count > 0 ? '(' + count + ')' : '',
+      openCart: () => { this.setState({ menuOpen: false }); window.dispatchEvent(new CustomEvent('nn-cart-open')); }
+    };
+  }
+}
+</script>
+</body>
+</html>

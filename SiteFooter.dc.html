@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500&family=EB+Garamond:ital,wght@0,400;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+</helmet>
+<footer style="position:relative;background:#1C1712;color:#F6EBD9;padding:clamp(70px,10vh,120px) clamp(24px,6vw,120px) 40px;font-family:'EB Garamond',serif;">
+  <div style="max-width:1320px;margin:0 auto;">
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,90px);padding-bottom:clamp(50px,7vh,80px);border-bottom:1px solid rgba(169,132,70,.28);">
+      <div style="flex:1.4 1 360px;">
+        <span style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:#A98446;">Join the atelier</span>
+        <p style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,3.2vw,44px);line-height:1.1;color:#F6EBD9;margin:18px 0 26px;max-width:14ch;">Scent stories, kept close.</p>
+        <sc-if value="{{ unsub }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onSubscribe }}" style="display:flex;flex-wrap:wrap;gap:0;max-width:460px;border-bottom:1px solid rgba(246,235,217,.4);">
+            <input type="email" required aria-label="Email address" placeholder="Your email" style="flex:1 1 200px;background:transparent;border:0;outline:none;color:#F6EBD9;font-family:'EB Garamond',serif;font-size:17px;padding:14px 2px;">
+            <button type="submit" style="flex:0 0 auto;background:transparent;border:0;color:#F6EBD9;font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;padding:14px 6px;transition:color .35s;" style-hover="color:#A98446;">Subscribe →</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+          <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:#D8B774;margin:0;">Thank you — welcome to the atelier.</p>
+        </sc-if>
+        <p style="font-family:'EB Garamond',serif;font-size:14px;line-height:1.6;color:rgba(246,235,217,.55);margin:20px 0 0;max-width:420px;">Scent stories, new releases, and early access to the experience.</p>
+      </div>
+      <div style="flex:1 1 150px;">
+        <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#A98446;">Explore</span>
+        <div style="display:flex;flex-direction:column;gap:13px;margin-top:22px;">
+          <a href="Nard%20%26%20Notes%20-%20Home.dc.html" style="font-family:'EB Garamond',serif;font-size:16.5px;color:rgba(246,235,217,.82);text-decoration:none;transition:color .35s;" style-hover="color:#A98446;">Home</a>
+          <a href="About.dc.html" style="font-family:'EB Garamond',serif;font-size:16.5px;color:rgba(246,235,217,.82);text-decoration:none;transition:color .35s;" style-hover="color:#A98446;">About</a>
+          <a href="Services.dc.html" style="font-family:'EB Garamond',serif;font-size:16.5px;color:rgba(246,235,217,.82);text-decoration:none;transition:color .35s;" style-hover="color:#A98446;">Services</a>
+          <a href="The%20Experience.dc.html" style="font-family:'EB Garamond',serif;font-size:16.5px;color:rgba(246,235,217,.82);text-decoration:none;transition:color .35s;" style-hover="color:#A98446;">The Experience</a>
+          <a href="Shop.dc.html" style="font-family:'EB Garamond',serif;font-size:16.5px;color:rgba(246,235,217,.82);text-decoration:none;transition:color .35s;" style-hover="color:#A98446;">Shop</a>
+        </div>
+      </div>
+      <div style="flex:1 1 200px;">
+        <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#A98446;">Contact</span>
+        <div style="display:flex;flex-direction:column;gap:13px;margin-top:22px;">
+          <a href="mailto:info@nardandnotes.com" style="font-family:'EB Garamond',serif;font-size:16.5px;color:rgba(246,235,217,.82);text-decoration:none;transition:color .35s;" style-hover="color:#A98446;">info@nardandnotes.com</a>
+          <a href="https://instagram.com/nardandnotes" target="_blank" rel="noopener" style="font-family:'EB Garamond',serif;font-size:16.5px;color:rgba(246,235,217,.82);text-decoration:none;transition:color .35s;" style-hover="color:#A98446;">Instagram — @nardandnotes</a>
+          <span style="font-family:'EB Garamond',serif;font-size:16.5px;color:rgba(246,235,217,.55);">By appointment · Serving the U.S. &amp; beyond</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding-top:36px;">
+      <img src="assets/logo-cream.png" alt="Nard &amp; Notes" style="height:54px;width:auto;opacity:.92;">
+      <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,235,217,.45);">© {{ year }} Nard &amp; Notes — Where memories become scent.</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { subscribed: false };
+  renderVals() {
+    return {
+      subscribed: this.state.subscribed,
+      unsub: !this.state.subscribed,
+      onSubscribe: (e) => { e.preventDefault(); this.setState({ subscribed: true }); },
+      year: new Date().getFullYear()
+    };
+  }
+}
+</script>
+</body>
+</html>

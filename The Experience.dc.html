@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#F6EBD9;color:#1C1712;font-family:'EB Garamond',Georgia,serif;-webkit-font-smoothing:antialiased;}
+::selection{background:#A98446;color:#F6EBD9;}
+summary{list-style:none;cursor:pointer;}
+summary::-webkit-details-marker{display:none;}
+details[open] [data-plus]{transform:rotate(45deg);}
+</style>
+</helmet>
+
+<dc-import name="SiteNav" active="experience" hint-size="100%,0"></dc-import>
+
+<main style="position:relative;">
+
+  <section data-screen-label="Experience — Hero" style="position:relative;min-height:90vh;display:flex;align-items:flex-end;padding:120px clamp(24px,6vw,120px) clamp(60px,9vh,110px);overflow:hidden;background:#1C1712;">
+    <img src="assets/craft-menu.jpg" alt="The custom-blend menu and pipettes at the Nard &amp; Notes fragrance bar." style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.86) sepia(.07);">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,15,10,.5) 0%,rgba(20,15,10,.25) 42%,rgba(20,15,10,.74) 100%);"></div>
+    <div style="position:relative;max-width:1100px;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px;"><span style="width:42px;height:1px;background:#C9A45E;display:block;"></span><span style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#E7D4AE;">The Experience</span></div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,7vw,104px);line-height:1.0;letter-spacing:-.01em;color:#F6EBD9;margin:0;">The bar arrives.<br><span style="font-style:italic;">The blending begins.</span></h1>
+    </div>
+  </section>
+
+  <section data-screen-label="Experience — Story" style="background:#F6EBD9;padding:clamp(96px,14vh,180px) clamp(24px,6vw,120px);">
+    <div style="max-width:880px;margin:0 auto;text-align:center;">
+      <div data-reveal style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:34px;"><span style="width:34px;height:1px;background:#A98446;display:block;"></span><span style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:#A98446;">A Story in Scent</span><span style="width:34px;height:1px;background:#A98446;display:block;"></span></div>
+      <p data-reveal data-reveal-d="80" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(25px,3.2vw,44px);line-height:1.3;color:#1C1712;margin:0;">The bar arrives — apothecary bottles catching the light, a library of notes waiting. Guests gather, curious. Then the blending begins: a drop of this, a breath of that, guided by hand <span style="font-style:italic;color:#8a6a32;">until the scent is unmistakably theirs.</span></p>
+    </div>
+  </section>
+
+  <section data-screen-label="Experience — Full bleed" style="position:relative;height:clamp(360px,62vh,640px);overflow:hidden;background:#1C1712;">
+    <img src="assets/bar.jpg" alt="The full branded Nard &amp; Notes fragrance bar with the OLA Nº 50 custom menu." loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:saturate(.92) brightness(.96) sepia(.05);">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,15,10,.18),rgba(20,15,10,.4));"></div>
+  </section>
+
+  <section data-screen-label="Experience — Guest receives" style="background:#EFE2CC;padding:clamp(96px,14vh,180px) clamp(24px,6vw,120px);">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div data-reveal style="display:flex;align-items:center;gap:16px;margin-bottom:26px;"><span style="width:42px;height:1px;background:#A98446;display:block;"></span><span style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:#A98446;">What every guest receives</span></div>
+      <h2 data-reveal data-reveal-d="60" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(32px,4.6vw,64px);line-height:1.04;color:#1C1712;margin:0 0 clamp(46px,7vh,76px);">Three things to keep.</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(30px,4vw,64px);">
+        <div data-reveal style="flex:1 1 260px;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#A98446;">01</span>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.2vw,30px);color:#1C1712;margin:12px 0 12px;">A guided session</h3>
+          <p style="font-family:'EB Garamond',serif;font-size:17.5px;line-height:1.65;color:#5a4e40;margin:0;">Time at the bar with our experts, exploring notes and composing with care.</p>
+        </div>
+        <div data-reveal data-reveal-d="100" style="flex:1 1 260px;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#A98446;">02</span>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.2vw,30px);color:#1C1712;margin:12px 0 12px;">Their own perfume</h3>
+          <p style="font-family:'EB Garamond',serif;font-size:17.5px;line-height:1.65;color:#5a4e40;margin:0;">A scent blended by their own hand — and given its own number.</p>
+        </div>
+        <div data-reveal data-reveal-d="200" style="flex:1 1 260px;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#A98446;">03</span>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.2vw,30px);color:#1C1712;margin:12px 0 12px;">Elegant packaging</h3>
+          <p style="font-family:'EB Garamond',serif;font-size:17.5px;line-height:1.65;color:#5a4e40;margin:0;">Bottled and boxed to take home — the memory, kept close.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Experience — Occasions" style="background:#F6EBD9;padding:clamp(96px,14vh,180px) clamp(24px,6vw,120px);">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div data-reveal style="display:flex;align-items:center;gap:16px;margin-bottom:26px;"><span style="width:42px;height:1px;background:#A98446;display:block;"></span><span style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:#A98446;">Occasions</span></div>
+      <h2 data-reveal data-reveal-d="60" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(32px,4.6vw,64px);line-height:1.04;color:#1C1712;margin:0 0 clamp(40px,6vh,64px);">For every meaningful moment.</h2>
+      <div data-reveal style="display:flex;flex-wrap:wrap;gap:0 clamp(30px,4vw,70px);">
+        <span style="flex:1 1 320px;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.4vw,34px);color:#1C1712;padding:18px 0;border-bottom:1px solid rgba(169,132,70,.26);">Weddings</span>
+        <span style="flex:1 1 320px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,2.4vw,34px);color:#1C1712;padding:18px 0;border-bottom:1px solid rgba(169,132,70,.26);">Bridal Showers &amp; Bachelorettes</span>
+        <span style="flex:1 1 320px;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.4vw,34px);color:#1C1712;padding:18px 0;border-bottom:1px solid rgba(169,132,70,.26);">Baby Showers &amp; Gender Reveals</span>
+        <span style="flex:1 1 320px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,2.4vw,34px);color:#1C1712;padding:18px 0;border-bottom:1px solid rgba(169,132,70,.26);">Birthdays &amp; Milestones</span>
+        <span style="flex:1 1 320px;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.4vw,34px);color:#1C1712;padding:18px 0;border-bottom:1px solid rgba(169,132,70,.26);">Corporate, Galas &amp; Team Building</span>
+        <span style="flex:1 1 320px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,2.4vw,34px);color:#1C1712;padding:18px 0;border-bottom:1px solid rgba(169,132,70,.26);">Graduations</span>
+        <span style="flex:1 1 320px;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.4vw,34px);color:#1C1712;padding:18px 0;border-bottom:1px solid rgba(169,132,70,.26);">Destination &amp; Private Celebrations</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Experience — FAQ" style="background:#EFE2CC;padding:clamp(96px,14vh,180px) clamp(24px,6vw,120px);">
+    <div style="max-width:900px;margin:0 auto;">
+      <div data-reveal style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(36px,5vh,56px);"><span style="width:42px;height:1px;background:#A98446;display:block;"></span><span style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:#A98446;">Questions &amp; Notes</span></div>
+      <!-- FAQ answers are sensible defaults — editable by James -->
+      <details data-reveal style="border-top:1px solid rgba(169,132,70,.3);padding:6px 0;">
+        <summary style="display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);color:#1C1712;">How much space does the bar need?<span data-plus style="font-family:'Jost',sans-serif;font-size:22px;color:#A98446;transition:transform .4s cubic-bezier(.22,1,.36,1);flex:0 0 auto;">+</span></summary>
+        <p style="font-family:'EB Garamond',serif;font-size:18px;line-height:1.7;color:#5a4e40;margin:0 0 24px;max-width:640px;">The mobile bar fits gracefully into most venues — a draped footprint of roughly six to eight feet is ample. We adapt to your floor plan and styling.</p>
+      </details>
+      <details data-reveal style="border-top:1px solid rgba(169,132,70,.3);padding:6px 0;">
+        <summary style="display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);color:#1C1712;">How long does each guest take?<span data-plus style="font-family:'Jost',sans-serif;font-size:22px;color:#A98446;transition:transform .4s cubic-bezier(.22,1,.36,1);flex:0 0 auto;">+</span></summary>
+        <p style="font-family:'EB Garamond',serif;font-size:18px;line-height:1.7;color:#5a4e40;margin:0 0 24px;max-width:640px;">Most guests blend in eight to twelve minutes. Across a two-to-three hour experience, the bar comfortably serves a flowing crowd.</p>
+      </details>
+      <details data-reveal style="border-top:1px solid rgba(169,132,70,.3);padding:6px 0;">
+        <summary style="display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);color:#1C1712;">Do you travel to our venue?<span data-plus style="font-family:'Jost',sans-serif;font-size:22px;color:#A98446;transition:transform .4s cubic-bezier(.22,1,.36,1);flex:0 0 auto;">+</span></summary>
+        <p style="font-family:'EB Garamond',serif;font-size:18px;line-height:1.7;color:#5a4e40;margin:0 0 24px;max-width:640px;">Yes. The bar is fully mobile and travels to your venue. Destination and private celebrations are warmly welcome.</p>
+      </details>
+      <details data-reveal style="border-top:1px solid rgba(169,132,70,.3);padding:6px 0;">
+        <summary style="display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);color:#1C1712;">How many guests can you serve?<span data-plus style="font-family:'Jost',sans-serif;font-size:22px;color:#A98446;transition:transform .4s cubic-bezier(.22,1,.36,1);flex:0 0 auto;">+</span></summary>
+        <p style="font-family:'EB Garamond',serif;font-size:18px;line-height:1.7;color:#5a4e40;margin:0 0 24px;max-width:640px;">Experiences are tailored to your guest count and run two to three hours. Share your numbers and we'll recommend the right setup.</p>
+      </details>
+      <details data-reveal style="border-top:1px solid rgba(169,132,70,.3);border-bottom:1px solid rgba(169,132,70,.3);padding:6px 0;">
+        <summary style="display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);color:#1C1712;">How far in advance should we book?<span data-plus style="font-family:'Jost',sans-serif;font-size:22px;color:#A98446;transition:transform .4s cubic-bezier(.22,1,.36,1);flex:0 0 auto;">+</span></summary>
+        <p style="font-family:'EB Garamond',serif;font-size:18px;line-height:1.7;color:#5a4e40;margin:0 0 24px;max-width:640px;">We recommend reserving four to six weeks ahead. Bespoke and private-label work benefits from a little more lead time.</p>
+      </details>
+    </div>
+  </section>
+
+  <section data-screen-label="Experience — Gallery" style="background:#F6EBD9;padding:clamp(80px,12vh,150px) clamp(24px,6vw,120px);">
+    <div style="max-width:1320px;margin:0 auto;">
+      <div data-reveal style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(34px,5vh,52px);"><span style="width:42px;height:1px;background:#A98446;display:block;"></span><span style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:#A98446;">From the atelier</span></div>
+      <div data-reveal style="display:flex;flex-wrap:wrap;gap:clamp(12px,1.5vw,20px);">
+        <figure style="margin:0;flex:1 1 240px;aspect-ratio:4/5;overflow:hidden;border:1px solid rgba(169,132,70,.26);"><img src="assets/notes-bottles.jpg" alt="Branded apothecary bottles with note pyramids." loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:saturate(.93) brightness(1.02) sepia(.05);"></figure>
+        <figure style="margin:0;flex:1 1 240px;aspect-ratio:4/5;overflow:hidden;border:1px solid rgba(169,132,70,.26);"><img src="assets/gold-mosaic.jpg" alt="The gold-mosaic arched wall of the venue." loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:saturate(.93) brightness(1.02) sepia(.05);"></figure>
+        <figure style="margin:0;flex:1 1 240px;aspect-ratio:4/5;overflow:hidden;border:1px solid rgba(169,132,70,.26);"><img src="assets/ola-sample.jpg" alt="OLA Nº 50 take-home bottles and a sample cup." loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:saturate(.93) brightness(1.02) sepia(.05);"></figure>
+        <figure style="margin:0;flex:1 1 240px;aspect-ratio:4/5;overflow:hidden;border:1px solid rgba(169,132,70,.26);"><img src="assets/tablescape.jpg" alt="A blush floral tablescape." loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:saturate(.93) brightness(1.02) sepia(.05);"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Experience — Close" style="position:relative;padding:clamp(110px,18vh,220px) clamp(24px,6vw,120px);background:#1C1712;overflow:hidden;text-align:center;">
+    <img src="assets/monogram-cream.png" alt="" aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(56vw,460px);opacity:.05;pointer-events:none;">
+    <div style="position:relative;max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:clamp(30px,5vh,50px);">
+      <h2 data-reveal style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,6vw,86px);line-height:1.04;color:#F6EBD9;margin:0;">Compose the moment<br><span style="font-style:italic;">they'll remember.</span></h2>
+      <a data-reveal data-reveal-d="120" href="Contact.dc.html" style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#F6EBD9;border:1px solid rgba(246,235,217,.6);padding:18px 38px;text-decoration:none;transition:background .35s cubic-bezier(.22,1,.36,1),color .35s,border-color .35s;" style-hover="background:#F6EBD9;color:#1C1712;border-color:#F6EBD9;">Book the Experience →</a>
+    </div>
+  </section>
+
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560"></dc-import>
+<dc-import name="CartDrawer" hint-size="0,0"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    els.forEach(el => {
+      const d = el.getAttribute('data-reveal-d') || 0;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(34px)';
+      el.style.transition = 'opacity .95s cubic-bezier(.22,1,.36,1) ' + d + 'ms, transform .95s cubic-bezier(.22,1,.36,1) ' + d + 'ms';
+      el.style.willChange = 'opacity, transform';
+    });
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(el => io.observe(el));
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

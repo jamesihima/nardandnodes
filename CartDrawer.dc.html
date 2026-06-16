@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+@keyframes nnfade{from{opacity:0;}to{opacity:1;}}
+@keyframes nnslidein{from{transform:translateX(100%);}to{transform:translateX(0);}}
+</style>
+</helmet>
+<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:90;font-family:'EB Garamond',serif;">
+    <div onClick="{{ close }}" style="position:absolute;inset:0;background:rgba(26,21,16,.5);animation:nnfade .4s ease;"></div>
+    <aside style="position:absolute;top:0;right:0;height:100%;width:clamp(310px,92vw,430px);background:#F6EBD9;box-shadow:-30px 0 80px rgba(26,21,16,.25);display:flex;flex-direction:column;animation:nnslidein .5s cubic-bezier(.22,1,.36,1);">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:26px 28px;border-bottom:1px solid rgba(169,132,70,.28);">
+        <span style="font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#1C1712;">Your Bag {{ countLabel }}</span>
+        <button onClick="{{ close }}" aria-label="Close bag" style="background:transparent;border:0;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#1C1712;">Close ✕</button>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:8px 28px;">
+        <sc-if value="{{ empty }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:60px 0;text-align:center;">
+            <img src="assets/monogram-ink.png" alt="" style="width:46px;height:auto;opacity:.35;margin:0 auto 22px;display:block;">
+            <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#6b5d4c;margin:0 0 8px;">Your bag is empty.</p>
+            <p style="font-family:'EB Garamond',serif;font-size:15px;color:#8a7c6a;margin:0;">A signature awaits composing.</p>
+          </div>
+        </sc-if>
+        <sc-for list="{{ items }}" as="item" hint-placeholder-count="0">
+          <div style="display:flex;gap:16px;padding:22px 0;border-bottom:1px solid rgba(169,132,70,.2);">
+            <img src="{{ item.img }}" alt="{{ item.name }}" style="width:72px;height:90px;object-fit:cover;border:1px solid rgba(169,132,70,.3);filter:saturate(.93) sepia(.05);flex:0 0 auto;">
+            <div style="flex:1;display:flex;flex-direction:column;">
+              <div style="display:flex;justify-content:space-between;gap:12px;">
+                <h4 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:21px;color:#1C1712;margin:0;">{{ item.name }}</h4>
+                <span style="font-family:'Cormorant Garamond',serif;font-size:19px;color:#8a6a32;">{{ item.lineLabel }}</span>
+              </div>
+              <span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#A98446;margin:4px 0 14px;">{{ item.no }}</span>
+              <div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;">
+                <div style="display:flex;align-items:center;border:1px solid rgba(169,132,70,.45);">
+                  <button onClick="{{ item.onDec }}" aria-label="Decrease quantity" style="background:transparent;border:0;cursor:pointer;width:30px;height:30px;color:#1C1712;font-family:'Jost',sans-serif;font-size:15px;">−</button>
+                  <span style="font-family:'Jost',sans-serif;font-size:13px;color:#1C1712;min-width:26px;text-align:center;">{{ item.qty }}</span>
+                  <button onClick="{{ item.onInc }}" aria-label="Increase quantity" style="background:transparent;border:0;cursor:pointer;width:30px;height:30px;color:#1C1712;font-family:'Jost',sans-serif;font-size:15px;">+</button>
+                </div>
+                <button onClick="{{ item.onRemove }}" style="background:transparent;border:0;cursor:pointer;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9a8a76;" style-hover="color:#1C1712;">Remove</button>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="padding:24px 28px;border-top:1px solid rgba(169,132,70,.28);">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;">
+          <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5a4e40;">Subtotal</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#1C1712;">{{ totalLabel }}</span>
+        </div>
+        <button style="width:100%;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#F6EBD9;background:#1C1712;border:1px solid #1C1712;padding:17px;cursor:pointer;transition:background .35s,color .35s;" style-hover="background:transparent;color:#1C1712;">Checkout</button>
+        <p style="font-family:'EB Garamond',serif;font-size:13px;font-style:italic;color:#8a7c6a;text-align:center;margin:12px 0 0;">Secure checkout via Shopify — connect at launch.</p>
+      </div>
+    </aside>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: false, items: [] };
+
+  load() { try { return JSON.parse(localStorage.getItem('nn_cart') || '[]'); } catch (e) { return []; } }
+  save(items) {
+    try { localStorage.setItem('nn_cart', JSON.stringify(items)); } catch (e) {}
+    window.dispatchEvent(new CustomEvent('nn-cart-changed', { detail: { count: items.reduce((a, i) => a + i.qty, 0) } }));
+  }
+
+  componentDidMount() {
+    const items = this.load();
+    this.setState({ items });
+    window.dispatchEvent(new CustomEvent('nn-cart-changed', { detail: { count: items.reduce((a, i) => a + i.qty, 0) } }));
+    this._open = () => this.setState({ open: true });
+    this._add = (e) => {
+      const p = e.detail;
+      this.setState(s => {
+        const ex = s.items.find(i => i.id === p.id);
+        const items = ex
+          ? s.items.map(i => i.id === p.id ? { ...i, qty: i.qty + 1 } : i)
+          : [...s.items, { id: p.id, name: p.name, no: p.no, price: p.price, img: p.img, qty: 1 }];
+        this.save(items);
+        return { items, open: true };
+      });
+    };
+    this._storage = (e) => { if (e.key === 'nn_cart') this.setState({ items: this.load() }); };
+    window.addEventListener('nn-cart-open', this._open);
+    window.addEventListener('nn-cart-add', this._add);
+    window.addEventListener('storage', this._storage);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('nn-cart-open', this._open);
+    window.removeEventListener('nn-cart-add', this._add);
+    window.removeEventListener('storage', this._storage);
+  }
+
+  changeQty(id, d) { this.setState(s => { const items = s.items.map(i => i.id === id ? { ...i, qty: i.qty + d } : i).filter(i => i.qty > 0); this.save(items); return { items }; }); }
+  remove(id) { this.setState(s => { const items = s.items.filter(i => i.id !== id); this.save(items); return { items }; }); }
+  money(n) { return '$' + Math.round(n); }
+
+  renderVals() {
+    const items = this.state.items;
+    const total = items.reduce((a, i) => a + i.price * i.qty, 0);
+    const count = items.reduce((a, i) => a + i.qty, 0);
+    return {
+      open: this.state.open,
+      empty: items.length === 0,
+      countLabel: count > 0 ? '(' + count + ')' : '',
+      totalLabel: this.money(total),
+      close: () => this.setState({ open: false }),
+      items: items.map(i => ({ ...i, lineLabel: this.money(i.price * i.qty), onInc: () => this.changeQty(i.id, 1), onDec: () => this.changeQty(i.id, -1), onRemove: () => this.remove(i.id) }))
+    };
+  }
+}
+</script>
+</body>
+</html>
